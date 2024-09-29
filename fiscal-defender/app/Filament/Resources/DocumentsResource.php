@@ -19,6 +19,10 @@ class DocumentsResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'Documentos'; // Grupo do menu
+    
+    protected static ?int $navigationSort = 4; // Ordem no menu
+
     public static function form(Form $form): Form
     {
         return $form

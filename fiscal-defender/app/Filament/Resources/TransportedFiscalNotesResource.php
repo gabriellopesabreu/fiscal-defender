@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\AutomaticRoutinesResource\Pages;
-use App\Filament\Resources\AutomaticRoutinesResource\RelationManagers;
-use App\Models\AutomaticRoutines;
+use App\Filament\Resources\TransportedFiscalNotesResource\Pages;
+use App\Filament\Resources\TransportedFiscalNotesResource\RelationManagers;
+use App\Models\TransportedFiscalNotes;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,13 +13,17 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class AutomaticRoutinesResource extends Resource
+class TransportedFiscalNotesResource extends Resource
 {
-    protected static ?string $model = AutomaticRoutines::class;
+    protected static ?string $model = TransportedFiscalNotes::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationLabel = 'Rotinas Automáticas';
+    protected static ?string $navigationGroup = 'Documentos';
+    
+    protected static ?int $navigationSort = 3;
+
+    protected static ?string $navigationLabel = 'NFs Transportadas';
 
     public static function form(Form $form): Form
     {
@@ -58,9 +62,9 @@ class AutomaticRoutinesResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListAutomaticRoutines::route('/'),
-            'create' => Pages\CreateAutomaticRoutines::route('/create'),
-            'edit' => Pages\EditAutomaticRoutines::route('/{record}/edit'),
+            'index' => Pages\ListTransportedFiscalNotes::route('/'),
+            'create' => Pages\CreateTransportedFiscalNotes::route('/create'),
+            'edit' => Pages\EditTransportedFiscalNotes::route('/{record}/edit'),
         ];
     }
 }
