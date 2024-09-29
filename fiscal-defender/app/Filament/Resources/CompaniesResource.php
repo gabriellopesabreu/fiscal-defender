@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\CompaniesResource\Pages;
 use App\Filament\Resources\CompaniesResource\RelationManagers;
-use App\Models\Companies;
+use App\Models\Company;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CompaniesResource extends Resource
 {
-    protected static ?string $model = Companies::class;
+    protected static ?string $model = Company::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -25,7 +25,9 @@ class CompaniesResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('cnpj')
+                ->required()
+                ->label('CNPJ')
             ]);
     }
 
@@ -33,7 +35,18 @@ class CompaniesResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('cnpj')
+                ->label('CNPJ'),
+                Tables\Columns\TextColumn::make('name')
+                ->label('Empresa'),
+                Tables\Columns\TextColumn::make('uf')
+                ->label('UF'),
+                Tables\Columns\TextColumn::make('status')
+                ->label('Status'),
+                Tables\Columns\TextColumn::make('certificate')
+                ->label('Certificado'),
+                Tables\Columns\TextColumn::make('main')
+                ->label('Principal'),
             ])
             ->filters([
                 //
