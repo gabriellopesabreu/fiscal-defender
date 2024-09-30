@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\AutomaticRoutinesResource\Pages;
 use App\Filament\Resources\AutomaticRoutinesResource\RelationManagers;
-use App\Models\AutomaticRoutines;
+use App\Models\AutomaticRoutine;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class AutomaticRoutinesResource extends Resource
 {
-    protected static ?string $model = AutomaticRoutines::class;
+    protected static ?string $model = AutomaticRoutine::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
