@@ -12,12 +12,13 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Actions\Action;
 
 class CertificatesResource extends Resource
 {
     protected static ?string $model = Certificate::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-key';
 
     protected static ?string $navigationLabel = 'Certificados';
 
@@ -33,13 +34,31 @@ class CertificatesResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('cnpj_id')
+                ->label('Raiz do CNPJ'),
+                Tables\Columns\TextColumn::make('name')
+                ->label('Razão Social'),
+                Tables\Columns\TextColumn::make('uf')
+                ->label('UF'),
+                Tables\Columns\TextColumn::make('due_date')
+                ->label('Vencimento')
+                ->dateTime('d-m-Y'),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()
+                ->requiresConfirmation()
+                ->modalHeading('Confirmar exclusão')
+                ->modalDescription('Tem certeza que deseja excluir este registro?')
+                ->modalSubmitActionLabel('Sim, excluir'),
+                Action::make('download')
+                ->label('Baixar')
+                ->icon('heroicon-o-arrow-down-on-square') 
+                ->color('success')
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

@@ -17,7 +17,7 @@ class AutomaticRoutinesResource extends Resource
 {
     protected static ?string $model = AutomaticRoutine::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-bolt';
 
     protected static ?string $navigationLabel = 'Rotinas Automáticas';
 

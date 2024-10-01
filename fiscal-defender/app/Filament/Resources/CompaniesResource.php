@@ -17,7 +17,7 @@ class CompaniesResource extends Resource
 {
     protected static ?string $model = Company::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-briefcase';
 
     protected static ?string $navigationLabel = 'Empresas';
 
@@ -27,7 +27,7 @@ class CompaniesResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('cnpj')
                 ->required()
-                ->label('CNPJ')
+                ->label('CNPJ'),
             ]);
     }
 
@@ -41,18 +41,26 @@ class CompaniesResource extends Resource
                 ->label('Empresa'),
                 Tables\Columns\TextColumn::make('uf')
                 ->label('UF'),
-                Tables\Columns\TextColumn::make('status')
-                ->label('Status'),
-                Tables\Columns\TextColumn::make('certificate')
-                ->label('Certificado'),
-                Tables\Columns\TextColumn::make('main')
-                ->label('Principal'),
+                Tables\Columns\IconColumn::make('status')
+                ->label('Status')
+                ->boolean(),
+                Tables\Columns\IconColumn::make('certificate')
+                ->label('Certificado')
+                ->boolean(),
+                Tables\Columns\IconColumn::make('main')
+                ->label('Principal')
+                ->boolean(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()
+                ->requiresConfirmation()
+                ->modalHeading('Confirmar exclusão')
+                ->modalDescription('Tem certeza que deseja excluir este registro?')
+                ->modalSubmitActionLabel('Sim, excluir')
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
