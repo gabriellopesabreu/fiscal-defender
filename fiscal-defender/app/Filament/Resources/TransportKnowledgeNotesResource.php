@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\TransportKnowledgeNotesResource\Pages;
 use App\Filament\Resources\TransportKnowledgeNotesResource\RelationManagers;
-use App\Models\TransportKnowledgeNotes;
+use App\Models\TransportKnowledgeNote;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class TransportKnowledgeNotesResource extends Resource
 {
-    protected static ?string $model = TransportKnowledgeNotes::class;
+    protected static ?string $model = TransportKnowledgeNote::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 

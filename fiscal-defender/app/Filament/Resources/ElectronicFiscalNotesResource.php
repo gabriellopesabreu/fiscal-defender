@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ElectronicFiscalNotesResource\Pages;
 use App\Filament\Resources\ElectronicFiscalNotesResource\RelationManagers;
-use App\Models\ElectronicFiscalNotes;
+use App\Models\ElectronicFiscalNote;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ElectronicFiscalNotesResource extends Resource
 {
-    protected static ?string $model = ElectronicFiscalNotes::class;
+    protected static ?string $model = ElectronicFiscalNote::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 

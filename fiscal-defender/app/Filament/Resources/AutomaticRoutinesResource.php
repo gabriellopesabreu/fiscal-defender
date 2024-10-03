@@ -33,13 +33,26 @@ class AutomaticRoutinesResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')
+                ->label('Empresa'),
+                Tables\Columns\TextColumn::make('cnpj')
+                ->label('CNPJ'),
+                Tables\Columns\TextColumn::make('document')
+                ->label('Documento'),
+                Tables\Columns\TextColumn::make('hour')
+                ->label('Hora'),
+
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()
+                ->requiresConfirmation()
+                ->modalHeading('Confirmar exclusão')
+                ->modalDescription('Tem certeza que deseja excluir este registro?')
+                ->modalSubmitActionLabel('Sim, excluir'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

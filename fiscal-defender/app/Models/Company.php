@@ -9,7 +9,14 @@ class Company extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['cnpj','name', 'uf','status','certificate','main'];
+    protected $fillable = [
+        'cnpj',
+        'name', 
+        'uf',
+        'status',
+        'certificate',
+        'main'
+    ];
 
     public function certificate() {
         return $this->belongsTo(Certificate::class);

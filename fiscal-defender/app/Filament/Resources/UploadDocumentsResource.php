@@ -3,7 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\UploadDocumentsResource\Pages;
-use App\Models\UploadDocuments;
+use App\Models\UploadDocument;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,7 +12,7 @@ use Filament\Tables\Table;
 
 class UploadDocumentsResource extends Resource
 {
-    protected static ?string $model = UploadDocuments::class;
+    protected static ?string $model = UploadDocument::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-cloud-arrow-up';
 
@@ -30,13 +30,30 @@ class UploadDocumentsResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('id')
+                ->label('#'),
+                Tables\Columns\TextColumn::make('file')
+                ->label('Arquivo'),
+                Tables\Columns\TextColumn::make('size')
+                ->label('Tamanho'),
+                Tables\Columns\TextColumn::make('speed')
+                ->label('Velocidade'),
+                Tables\Columns\IconColumn::make('status')
+                ->label('Status')
+                ->boolean(),
+                Tables\Columns\TextColumn::make('hour')
+                ->label('Hora'),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()
+                ->requiresConfirmation()
+                ->modalHeading('Confirmar exclusão')
+                ->modalDescription('Tem certeza que deseja excluir este registro?')
+                ->modalSubmitActionLabel('Sim, excluir')
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
