@@ -37,7 +37,69 @@ class TransportKnowledgeNotesResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('')
+                ->label('Chave'),
+                Tables\Columns\IconColumn::make('')
+                ->label('Situação')
+                ->boolean(),
+                Tables\Columns\TextColumn::make('')
+                ->label('Número CTe'),
+                Tables\Columns\TextColumn::make('')
+                ->label('vTotTrib')
+                ->sortable(),
+                Tables\Columns\TextColumn::make('')
+                ->label('vTPrest')
+                ->sortable(),
+                Tables\Columns\TextColumn::make('')
+                ->label('vRec')
+                ->sortable(),
+                Tables\Columns\TextColumn::make('')
+                ->label('Transportador')
+                ->sortable(),
+                Tables\Columns\TextColumn::make('')
+                ->label('Transportador CNPJ'),
+                Tables\Columns\TextColumn::make('')
+                ->label('Transportador IE'),
+                Tables\Columns\TextColumn::make('')
+                ->label('Remetente'),
+                Tables\Columns\TextColumn::make('')
+                ->label('Remetente CNPJ'),
+                Tables\Columns\TextColumn::make('')
+                ->label('Remetente IE'),
+                Tables\Columns\TextColumn::make('')
+                ->label('Destinatario'),
+                Tables\Columns\TextColumn::make('')
+                ->label('Destinatario CNPJ'),
+                Tables\Columns\TextColumn::make('')
+                ->label('Destinatario IE'),
+                Tables\Columns\TextColumn::make('')
+                ->label('Emitente'),
+                Tables\Columns\TextColumn::make('')
+                ->label('Emitente CNPJ'),
+                Tables\Columns\TextColumn::make('')
+                ->label('Emitente IE'),
+                Tables\Columns\TextColumn::make('')
+                ->label('Município de envio do CT-e'),
+                Tables\Columns\TextColumn::make('')
+                ->label('UF de envio do CT-e'),
+                Tables\Columns\TextColumn::make('')
+                ->label('Município do início da prestação'),
+                Tables\Columns\TextColumn::make('')
+                ->label('UF do início da prestação'),
+                Tables\Columns\TextColumn::make('')
+                ->label('Município do término da prestação'),
+                Tables\Columns\TextColumn::make('')
+                ->label('UF do término da prestação'),
+                Tables\Columns\TextColumn::make('')
+                ->label('CFOP'),
+                Tables\Columns\TextColumn::make('')
+                ->label('Natureza da Operação'),
+                Tables\Columns\TextColumn::make('')
+                ->label('Modelo'),
+                Tables\Columns\TextColumn::make('')
+                ->label('Série'),
+                Tables\Columns\TextColumn::make('')
+                ->label('Observação'),
             ])
             ->filters([
                 //

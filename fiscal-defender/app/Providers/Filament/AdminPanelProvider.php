@@ -27,6 +27,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->brandName('Fiscal Defender')
             ->colors([
                 'primary' => '#28536C',
             ])

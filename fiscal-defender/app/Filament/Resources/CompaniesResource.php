@@ -21,6 +21,11 @@ class CompaniesResource extends Resource
 
     protected static ?string $navigationLabel = 'Empresas';
 
+    public static function getLabel(): string
+    {
+        return 'Empresas';
+    }
+
     public static function form(Form $form): Form
     {
         return $form
