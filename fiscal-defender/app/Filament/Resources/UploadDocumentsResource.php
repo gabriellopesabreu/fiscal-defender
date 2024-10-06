@@ -18,6 +18,16 @@ class UploadDocumentsResource extends Resource
 
     protected static ?string $navigationLabel = 'Upload de Notas';
 
+    public static function getLabel(): string
+    {
+        return 'Upload de Nota';
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return 'Upload de Notas';
+    }
+
     public static function form(Form $form): Form
     {
         return $form

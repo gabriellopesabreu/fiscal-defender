@@ -21,6 +21,16 @@ class AutomaticRoutinesResource extends Resource
 
     protected static ?string $navigationLabel = 'Rotinas Automáticas';
 
+    public static function getLabel(): string
+    {
+        return 'Rotina Automática';
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return 'Rotinas Automáticas';
+    }
+
     public static function form(Form $form): Form
     {
         return $form

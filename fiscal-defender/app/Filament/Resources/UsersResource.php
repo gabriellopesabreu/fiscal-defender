@@ -18,6 +18,15 @@ class UsersResource extends Resource
 
     protected static ?string $navigationLabel = 'Usuários';
 
+    public static function getLabel(): string
+    {
+        return 'Usuário';
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return 'Usuários';
+    }
     public static function form(Form $form): Form
     {
         return $form
