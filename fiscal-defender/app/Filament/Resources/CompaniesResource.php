@@ -23,6 +23,12 @@ class CompaniesResource extends Resource
 
     public static function getLabel(): string
     {
+        return 'Empresa';
+    }
+
+    // Define o nome plural do recurso
+    public static function getPluralLabel(): string
+    {
         return 'Empresas';
     }
 
