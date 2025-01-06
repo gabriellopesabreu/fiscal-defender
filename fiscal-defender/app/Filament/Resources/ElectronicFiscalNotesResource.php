@@ -10,8 +10,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Actions\Action;
 
 class ElectronicFiscalNotesResource extends Resource
 {
@@ -24,6 +23,23 @@ class ElectronicFiscalNotesResource extends Resource
     protected static ?int $navigationSort = 1;
 
     protected static ?string $navigationLabel = 'NF-e';
+
+    protected function getActions(): array
+    {
+        return [
+            Action::make('importCategories')
+                ->label('Import Categories') // Nome do botão
+                ->button() // Define como botão
+                ->color('secondary') // Define a cor do botão
+                ->action('importCategories'), // Chama a função 'importCategories'
+        ];
+    }
+
+    public function importCategories()
+    {
+        // Adicione a lógica de importação
+        // Por exemplo, abrir um modal, ou carregar um arquivo
+    }
 
     public static function form(Form $form): Form
     {

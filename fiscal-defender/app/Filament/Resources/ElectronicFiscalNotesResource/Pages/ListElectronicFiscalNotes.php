@@ -13,6 +13,9 @@ class ListElectronicFiscalNotes extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
+            Actions\CreateAction::make()->label("Download"),
+            Actions\CreateAction::make()->label("Manifestacao"),
+            Actions\CreateAction::make()->label("Menu"),
             Actions\CreateAction::make(),
         ];
     }

@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\UploadDocumentsResource\Pages;
 use App\Models\UploadDocument;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -32,7 +33,9 @@ class UploadDocumentsResource extends Resource
     {
         return $form
             ->schema([
-                //
+                FileUpload::make('attachment')
+                    ->multiple()
+                    ->maxFiles(5)
             ]);
     }
 
