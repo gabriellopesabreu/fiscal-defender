@@ -24,23 +24,6 @@ class ElectronicFiscalNotesResource extends Resource
 
     protected static ?string $navigationLabel = 'NF-e';
 
-    protected function getActions(): array
-    {
-        return [
-            Action::make('importCategories')
-                ->label('Import Categories') // Nome do botão
-                ->button() // Define como botão
-                ->color('secondary') // Define a cor do botão
-                ->action('importCategories'), // Chama a função 'importCategories'
-        ];
-    }
-
-    public function importCategories()
-    {
-        // Adicione a lógica de importação
-        // Por exemplo, abrir um modal, ou carregar um arquivo
-    }
-
     public static function form(Form $form): Form
     {
         return $form
@@ -94,6 +77,8 @@ class ElectronicFiscalNotesResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make(),
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
